@@ -23,12 +23,12 @@
 #DEFINE __ESTEPE__     2
 
 //------------------------------------
-// Controle de shape em movimento (-1 significa n„o movimentando)
+// Controle de shape em movimento (-1 significa n√£o movimentando)
 //------------------------------------
 Static __nShape := -1
 
 //-----------------------------
-// Controle de ID de shape
+// Controle de ID de shap.
 //-----------------------------
 Static nId := 0
 
@@ -39,7 +39,7 @@ Static aShape := {}
 
 //---------------------------------------------------------------------
 /*/{Protheus.doc} rodados
-Exemplo de utilizaÁ„o da classe TPaintPanel
+Exemplo de utiliza√ß√£o da classe TPaintPanel
 
 @author Vitor Emanuel Batista
 @since 24/02/2012             
@@ -56,10 +56,10 @@ User Function rodados
 	// Valida se Build esta atualizada
 	//----------------------------------
 	If GetBuild() < MIN_BUILD_VERSION
-		MsgStop(	"Foi detectada uma incompatibilidade na vers„o da Build do Protheus." + Chr(13)+Chr(10) + ;
+		MsgStop(	"Foi detectada uma incompatibilidade na vers√£o da Build do Protheus." + Chr(13)+Chr(10) + ;
 					"Favor atualizar Protheus Server e Protheus Remote." + Chr(13)+Chr(10) + ;
-					"Vers„o mÌnima necess·ria:" + MIN_BUILD_VERSION)
-		Final("Incompatibilidade com a vers„o da Build.")
+					"Vers√£o m√≠nima necess√°ria:" + MIN_BUILD_VERSION)
+		Final("Incompatibilidade com a vers√£o da Build.")
 	EndIf
 	
 	If !FindFunction("NGRETESTRU") 
@@ -70,7 +70,7 @@ User Function rodados
 
 		oTPanel  := TPaintPanel():new(0,0,0,0,oDlg,.f.)
 			oTPanel:Align       := CONTROL_ALIGN_ALLCLIENT			
-			oTPanel:SetReleaseButton(.T.) //Para ser executado bloco de cÛdigo do blClicked ao release do shape
+			oTPanel:SetReleaseButton(.T.) //Para ser executado bloco de c√≥digo do blClicked ao release do shape
 			oTPanel:bRClicked   := {|x,y| ShapeList() }  //Botao direito
 			oTPanel:blClicked   := {|x,y| lClick(x,y,oTPanel)}
 
@@ -84,7 +84,7 @@ Return
 
 //---------------------------------------------------------------------
 /*/{Protheus.doc} CriaEstrutura
-Cria estrutura com os pneus aleatÛrios
+Cria estrutura com os pneus aleat√≥rios
 
 @author Vitor Emanuel Batista
 @since 24/02/2012
@@ -252,7 +252,7 @@ Static Function CriaPneu(oPanel,nImgX,nImgY,cType,cCodPneu,nVida,lEstepe,lClick,
 			cPneu := cPneuVermelho
 		EndIf
 
-		cToolTip := "CÛdigo do pneu: - " + Trim(cCodPneu)
+		cToolTip := "C√≥digo do pneu: - " + Trim(cCodPneu)
 
 	Else
 		cCodPneu := ""
@@ -267,7 +267,7 @@ Static Function CriaPneu(oPanel,nImgX,nImgY,cType,cCodPneu,nVida,lEstepe,lClick,
 						cType,;
 						{Val(cTxtId),nTxtX,nTxtY},; //ARRAY DO TEXTO
 						aInfo,; //ARRAY COM INFORMACOES ADICIONAIS
-						cToolTip,; //DESCRI«√O QUANDO PASSAR O MOUSE SOBRE O SHAPE
+						cToolTip,; //DESCRI√á√ÉO QUANDO PASSAR O MOUSE SOBRE O SHAPE
 						Val(cWidth),; //LARGURA DA IMAGEM
 						Val(cHeight),; //ALTURA DA IMAGEM
 						{nVida,lEstepe,lInvisible}}; //ARRAY DA VIDA DO PNEU, SE ELE EH ESTEPE, SE ESTA INVISIVEL
@@ -353,7 +353,7 @@ Return .T.
 
 //---------------------------------------------------------------------
 /*/{Protheus.doc} lClick
-Controle de movimentaÁ„o de pneu
+Controle de movimenta√ß√£o de pneu
 
 @author Vitor Emanuel Batista
 @since 24/02/2012
@@ -375,30 +375,30 @@ Static Function lClick(x,y,oPanel)
 			nDestino := aSCAN(aShape,{ |a| a[__IMGX__] < x .And. a[__IMGX__]+a[__WIDTH__] > x .And. a[__IMGY__] < y .And. a[__IMGY__]+a[__HEIGHT__] > y })			
 			If nDestino > 0 .And. nDestino <> nShape
 				conout("--------")
-				conout("VocÍ soltou no shape: " + cValtoChar(aShape[nDestino][__IDPNEU__]) + " - " + aShape[nDestino][__CODPNEU__])
+				conout("Voc√™ soltou no shape: " + cValtoChar(aShape[nDestino][__IDPNEU__]) + " - " + aShape[nDestino][__CODPNEU__])
 				conout("--------")
 				TrocaPneu(nShape,oPanel,nDestino,oPanel)
 			Else
 				//--------------------------
-				// Volta a PosiÁ„o original
+				// Volta a Posi√ß√£o original
 				//--------------------------
 				oPanel:SetPosition(aShape[nShape][__IDPNEU__],aShape[nShape][__IMGX__],aShape[nShape][__IMGY__]) 
 				
 				conout("--------")
-				conout("N„o houve troca de shapes, retornado shape para inicio da movimentaÁ„o. | X=" + cValToChar(x) + " | Y="+cValToChar(y))
+				conout("N√£o houve troca de shapes, retornado shape para inicio da movimenta√ß√£o. | X=" + cValToChar(x) + " | Y="+cValToChar(y))
 				conout("--------")
 				
 			EndIf
 			
 			//-------------------------------------------
-			// Indica que n„o h· mais shape em movimento
+			// Indica que n√£o h√° mais shape em movimento
 			//-------------------------------------------
 			SetShapeAtu()
 			
 		Else
 		
 			conout("--------")
-			conout("VocÍ clicou no shape: " + cValtoChar(aShape[nShape][__IDPNEU__]) + " - " + aShape[nShape][__CODPNEU__] + "| X=" + cValToChar(x) + " | Y="+cValToChar(y))
+			conout("Voc√™ clicou no shape: " + cValtoChar(aShape[nShape][__IDPNEU__]) + " - " + aShape[nShape][__CODPNEU__] + "| X=" + cValToChar(x) + " | Y="+cValToChar(y))
 			conout("--------")
 			
 			//-------------------------
@@ -408,7 +408,7 @@ Static Function lClick(x,y,oPanel)
 			
 		EndIf
 	Else
-		conout("Shape n„o encontrado! Shape=" + cValToChar(oPanel:ShapeAtu) + "| X=" + cValToChar(x) + " | Y="+cValToChar(y))
+		conout("Shape n√£o encontrado! Shape=" + cValToChar(oPanel:ShapeAtu) + "| X=" + cValToChar(x) + " | Y="+cValToChar(y))
 	EndIf
 
 Return
@@ -449,7 +449,7 @@ Return __nShape
 
 //---------------------------------------------------------------------
 /*/{Protheus.doc} isMoving
-Indica se o shape est· em movimento
+Indica se o shape est√° em movimento
 
 @author Vitor Emanuel Batista
 @since 28/02/2012
@@ -463,7 +463,7 @@ Return __nShape <> -1
 //---------------------------------------------------------------------
 /*/{Protheus.doc} ShapeList
 Lista no console os shapes e pneus contidos na array aShape, apenas
-para visualizaÁ„o das informaÁıes j· alteradas na array
+para visualiza√ß√£o das informa√ß√µes j√° alteradas na array
 
 @author Vitor Emanuel Batista
 @since 13/03/2012
@@ -475,7 +475,7 @@ Static Function ShapeList()
 	Local nShape
 	
 	conout("--------")
-	conout("Abaixo ser„o listados todos os shapes/pneus")
+	conout("Abaixo ser√£o listados todos os shapes/pneus")
 	conout("--------")
 	For nShape := 1 To Len(aShape)
 		conout(cValToChar(aShape[nShape][__IDPNEU__])+ "=" +aShape[nShape][__CODPNEU__])
