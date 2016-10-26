@@ -8,7 +8,7 @@ Fonte desenvolvido em [AdvPL] (http://tdn.totvs.com/display/tec/AdvPL) ([TOTVS] 
 Esta aplicação permite a movimentações (rodízio) de pneus utilizando o drag and drop.
 
 ## Screenshot
-![Rodados Advpl](https://raw.github.com/vitorebatista/advpl.rodados/master/docs/screenshot.png)
+![Rodados Advpl](./docs/screenshot.png)
 
 ## Quick Start
 * Baixe o arquivo rodados.prw
